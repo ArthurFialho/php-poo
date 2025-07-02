@@ -1,0 +1,57 @@
+[
+    {
+        "test": "testCriaInstanciaFuncionario",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testCalculoSalarioAnualFuncionario",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testCriaInstanciaGerenteComHeranca",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testPolimorfismoSalarioAnualGerente",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testCriaInstanciaDesenvolvedorComHeranca",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testSalarioAnualDesenvolvedorUsaMetodoPai",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testEncapsulamentoDosAtributos",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testFuncionarioNomeNaoVazio",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testFuncionarioSalarioPositivo",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testGerenteBonusAnualPositivo",
+        "result": "pass",
+        "message": ""
+    },
+    {
+        "test": "testDesenvolvedorLinguagemPrincipalNaoVazia",
+        "result": "pass",
+        "message": ""
+    }
+]
