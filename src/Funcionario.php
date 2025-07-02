@@ -7,9 +7,10 @@ class Funcionario
     protected string $nome;
     protected float $salario;
 
-    public function __construct(string $nome, float $salario) {
-        $this ->nome = $nome;
-        $this ->salario = $salario;
+    public function __construct(string $nome, float $salario)
+    {
+        $this->nome = $nome;
+        $this->salario = $salario;
     }
 
     public function getNome(): string
@@ -22,7 +23,8 @@ class Funcionario
         return $this->salario;
     }
 
-    public function  calcularSalarioAnual() : float {
-        return $this->getSalario() * 12;
+    public function calcularSalarioAnual(): float
+    {
+        return $this->salario * 12;
     }
 }
