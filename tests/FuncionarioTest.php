@@ -40,33 +40,23 @@ class FuncionarioTest extends TestCase
         }
     }
 
-    public function testCalculoSalarioAnualFuncionario()
-    {
-        try {
-            $funcionario = new Funcionario('João Silva', 3000);
-            $this->assertEquals(36000, $funcionario->calcularSalarioAnual());
-            $this->addTestResult(__FUNCTION__, 'pass');
-        } catch (\Throwable $e) {
-            $this->addTestResult(__FUNCTION__, 'fail', $e->getMessage());
-            throw $e;
-        }
-    }
+   public function testCalculoSalarioAnualFuncionario()
+{
+    $funcionario = new Funcionario('João Silva', 3000);
+    $this->assertEquals(36000, $funcionario->calcularSalarioAnual());
+}
 
-    public function testCriaInstanciaGerenteComHeranca()
-    {
-        try {
-            $gerente = new Gerente('Ana Costa', 8000, 5000);
-            $this->assertInstanceOf(Funcionario::class, $gerente);
-            $this->assertInstanceOf(Gerente::class, $gerente);
-            $this->assertEquals('Ana Costa', $gerente->getNome());
-            $this->assertEquals(8000, $gerente->getSalario());
-            $this->assertEquals(5000, $gerente->getBonusAnual());
-            $this->addTestResult(__FUNCTION__, 'pass');
-        } catch (\Throwable $e) {
-            $this->addTestResult(__FUNCTION__, 'fail', $e->getMessage());
-            throw $e;
-        }
-    }
+public function testCriaInstanciaGerenteComHeranca()
+{
+    $gerente = new Gerente('Ana Costa', 8000, 5000);
+
+    $this->assertInstanceOf(Funcionario::class, $gerente);
+    $this->assertInstanceOf(Gerente::class, $gerente);
+    $this->assertEquals('Ana Costa', $gerente->getNome());
+    $this->assertEquals(8000, $gerente->getSalario());
+    $this->assertEquals(5000, $gerente->getBonusAnual());
+}
+
 
     public function testPolimorfismoSalarioAnualGerente()
     {
