@@ -139,14 +139,8 @@ public function testCriaInstanciaGerenteComHeranca()
 
     public function testGerenteBonusAnualPositivo()
     {
-        try {
-            $gerente = new Gerente('Julia', 9000, 10000);
-            $this->assertGreaterThanOrEqual(0, $gerente->getBonusAnual());
-            $this->addTestResult(__FUNCTION__, 'pass');
-        } catch (\Throwable $e) {
-            $this->addTestResult(__FUNCTION__, 'fail', $e->getMessage());
-            throw $e;
-        }
+        $gerente = new Gerente('Julia', 9000, 10000);
+        $this->assertGreaterThanOrEqual(0, $gerente->getBonusAnual());
     }
 
     public function testDesenvolvedorLinguagemPrincipalNaoVazia()
