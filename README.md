@@ -175,11 +175,12 @@ Com tudo configurado e após ter criado suas classes na pasta `src/`, execute:
    php -v
    ```
    
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/86bc33ad-addb-497d-8414-3ebbb26aa520" alt="gifcodingphppoo" />
 </div>
 
-### Instalando o Composer
+<h1>Instalando o Composer</h1>
 
 1. Baixe o instalador do Composer em: https://getcomposer.org/Composer-Setup.exe
 2. Execute o instalador e siga as instruções (ele detecta o PHP automaticamente)
