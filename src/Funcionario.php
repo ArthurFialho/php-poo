@@ -4,5 +4,29 @@ namespace App;
 
 class Funcionario
 {
-    // Seu código virá aqui...
+    protected string $nome;
+    protected float $salario;
+
+
+    public function __construct(string $nome, float $salario) {
+        $this ->nome = $nome;
+        $this ->salario = $salario;
+    }
+
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    public function getSalario(): float
+    {
+        return $this->salario;
+    }
+
+    public function calcularSalarioAnual(float $salario) : float {
+        $this ->salario = $salario;
+        return $salario * 12;
+    }
+
+
 }
