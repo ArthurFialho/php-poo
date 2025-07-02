@@ -2,7 +2,18 @@
 
 namespace App;
 
-class Desenvolvedor
+class Desenvolvedor extends Funcionario
 {
-    // Seu código virá aqui...
+    private string $linguagemPrincipal;
+
+    public function __construct(string $nome, float $salario, float $linguagemPrincipal) {
+        $this ->nome = $nome;
+        $this ->salario = $salario;
+        $this ->$linguagemPrincipal = $linguagemPrincipal;
+    }
+
+    public function getLinguagemPrincipal(): string
+    {
+        return $this->linguagemPrincipal;
+    }
 }
