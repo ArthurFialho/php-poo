@@ -61,7 +61,7 @@ public function testCriaInstanciaGerenteComHeranca()
     public function testPolimorfismoSalarioAnualGerente()
     {
         try {
-            $gerente = new Gerente('Ana Costa', 8000, 5000);
+            $gerente = new Gerente('Ana Costa', 9000, 5000);
             $this->assertEquals(101000, $gerente->calcularSalarioAnual());
             $this->addTestResult(__FUNCTION__, 'pass');
         } catch (\Throwable $e) {
