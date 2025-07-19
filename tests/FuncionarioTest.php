@@ -40,22 +40,22 @@ class FuncionarioTest extends TestCase
         }
     }
 
-   public function testCalculoSalarioAnualFuncionario()
-{
-    $funcionario = new Funcionario('João Silva', 3000);
-    $this->assertEquals(36000, $funcionario->calcularSalarioAnual());
-}
+    public function testCalculoSalarioAnualFuncionario()
+    {
+        $funcionario = new Funcionario('João Silva', 3000);
+        $this->assertEquals(36000, $funcionario->calcularSalarioAnual());
+    }
 
-public function testCriaInstanciaGerenteComHeranca()
-{
-    $gerente = new Gerente('Ana Costa', 8000, 5000);
+    public function testCriaInstanciaGerenteComHeranca()
+    {
+        $gerente = new Gerente('Ana Costa', 8000, 5000);
 
-    $this->assertInstanceOf(Funcionario::class, $gerente);
-    $this->assertInstanceOf(Gerente::class, $gerente);
-    $this->assertEquals('Ana Costa', $gerente->getNome());
-    $this->assertEquals(8000, $gerente->getSalario());
-    $this->assertEquals(5000, $gerente->getBonusAnual());
-}
+        $this->assertInstanceOf(Funcionario::class, $gerente);
+        $this->assertInstanceOf(Gerente::class, $gerente);
+        $this->assertEquals('Ana Costa', $gerente->getNome());
+        $this->assertEquals(8000, $gerente->getSalario());
+        $this->assertEquals(5000, $gerente->getBonusAnual());
+    }
 
 
     public function testPolimorfismoSalarioAnualGerente()
@@ -154,4 +154,85 @@ public function testCriaInstanciaGerenteComHeranca()
             throw $e;
         }
     }
+
+
+    public function testFuncionarioComNomeInvalido()
+    {
+        try {
+            $this->expectException(\InvalidArgumentException::class);
+            new Funcionario('', 3000);
+            $this->addTestResult(__FUNCTION__, 'fail', 'Esperado nome inválido');
+        } catch (\Throwable $e) {
+            $this->addTestResult(__FUNCTION__, 'pass');
+            throw $e;
+        }
+    }
+
+    public function testFuncionarioComSalarioNegativo()
+    {
+        try {
+            $this->expectException(\InvalidArgumentException::class);
+            new Funcionario('João', -1000);
+            $this->addTestResult(__FUNCTION__, 'fail', 'Esperado salário negativo inválido');
+        } catch (\Throwable $e) {
+            $this->addTestResult(__FUNCTION__, 'pass');
+            throw $e;
+        }
+    }
+
+    public function testGerenteComBonusNegativo()
+    {
+        try {
+            $this->expectException(\InvalidArgumentException::class);
+            new Gerente('Carla', 5000, -300);
+            $this->addTestResult(__FUNCTION__, 'fail', 'Esperado bônus negativo inválido');
+        } catch (\Throwable $e) {
+            $this->addTestResult(__FUNCTION__, 'pass');
+            throw $e;
+        }
+    }
+
+    public function testDesenvolvedorComLinguagemVazia()
+    {
+        try {
+            $this->expectException(\InvalidArgumentException::class);
+            new Desenvolvedor('Thiago', 4500, '');
+            $this->addTestResult(__FUNCTION__, 'fail', 'Esperada linguagem principal não informada');
+        } catch (\Throwable $e) {
+            $this->addTestResult(__FUNCTION__, 'pass');
+            throw $e;
+        }
+    }
+
+    public function testAlteracaoDeDadosFuncionario()
+    {
+        try {
+            $funcionario = new Funcionario('Fernando', 3000);
+            $funcionario->setSalario(4000);
+            $this->assertEquals(4000, $funcionario->getSalario());
+
+            $funcionario->setNome('Fernando A.');
+            $this->assertEquals('Fernando A.', $funcionario->getNome());
+
+            $this->addTestResult(__FUNCTION__, 'pass');
+        } catch (\Throwable $e) {
+            $this->addTestResult(__FUNCTION__, 'fail', $e->getMessage());
+            throw $e;
+        }
+    }
+    public function testToStringFuncionario()
+    {
+        try {
+            $funcionario = new Funcionario('Joana', 3500);
+            $saida = (string) $funcionario;
+            $this->assertStringContainsString('Joana', $saida);
+            $this->assertStringContainsString('3500', $saida);
+            $this->addTestResult(__FUNCTION__, 'pass');
+        } catch (\Throwable $e) {
+            $this->addTestResult(__FUNCTION__, 'fail', $e->getMessage());
+            throw $e;
+        }
+    }
+
+
 }
